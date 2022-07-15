@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css';
-import MapComponent from './MapComponent';
+import MapComponent from './components/MapComponent';
 
 export default function App() {
 
@@ -16,7 +16,6 @@ export default function App() {
     <div className="App">
       <header className="App-header">
         <h1>Marker Map</h1>
-        
         <MapComponent
           markerList={markerList}
         />
