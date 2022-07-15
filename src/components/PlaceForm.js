@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 
-const MarkerForm = (props) => {
-	const [marker, setMarker] = useState({
-		markerName: props.marker ? props.marker.markerName : '',
-		lat: props.marker ? props.marker.lat : '',
-		lng: props.marker ? props.marker.lng : '',
-		date: props.marker ? props.marker.date : ''
+const PlaceForm = (props) => {
+	const [place, setPlace] = useState({
+		placeName: props.place ? props.place.placeName : '',
+		lat: props.place ? props.place.lat : '',
+		lng: props.place ? props.place.lng : '',
+		date: props.place ? props.place.date : ''
 	});
 
 	const [ errorMsg, setErrorMsg ] = useState('');
-	const { markerName, lat, lng } = marker;
+	const { placeName, lat, lng } = place;
 
 	const handleOnSubmit = (event) => {
 		event.preventDefault();
-		const values = [markerName, lat, lng];
+		const values = [placeName, lat, lng];
 		let errorMsg = '';
 
 		const allFieldsFilled = values.every((field) => {
@@ -24,14 +24,14 @@ const MarkerForm = (props) => {
 		});
 
 		if (allFieldsFilled) {
-			const marker = {
+			const place = {
 				id: uuidv4(),
-				markerName,
+				placeName,
 				lat,
 				lng,
 				date: new Date()
 			}
-			props.handleOnSubmit(marker);
+			props.handleOnSubmit(place);
 		} else {
 			errorMsg = 'Please fill out all the fields';
 		}
@@ -42,7 +42,7 @@ const MarkerForm = (props) => {
 
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
-		setMarker((prevState) => ({
+		setPlace((prevState) => ({
 			...prevState,
 			[name]: value
 		}));
@@ -53,35 +53,35 @@ const MarkerForm = (props) => {
 			{errorMsg && <p className="errorMsg">{errorMsg}</p>}
 			<Form onSubmit={handleOnSubmit}>
 				<Form.Group controlId="name">
-					<Form.Label>Marker Name</Form.Label>
+					<Form.Label>Place Name</Form.Label>
 					<Form.Control
 						className="input-control"
 						type="text"
-						name="markerName"
-						value={markerName}
-						placeholder="Enter name of marker"
+						name="placeName"
+						value={placeName}
+						placeholder="Enter name of place"
 						onChange={handleInputChange}
 					/>
 				</Form.Group>
 				<Form.Group controlId="lat">
-					<Form.Label>Marker Latitude</Form.Label>
+					<Form.Label>Place Latitude</Form.Label>
 					<Form.Control
 						className="input-control"
 						type="text"
 						name="lat"
 						value={lat}
-						placeholder="Enter latitude of marker"
+						placeholder="Enter latitude of place"
 						onChange={handleInputChange}
 					/>
 				</Form.Group>
 				<Form.Group controlId="lng">
-					<Form.Label>Marker Longitude</Form.Label>
+					<Form.Label>Place Longitude</Form.Label>
 					<Form.Control
 						className="input-control"
 						type="text"
 						name="lng"
 						value={lng}
-						placeholder="Enter longitude of marker"
+						placeholder="Enter longitude of place"
 						onChange={handleInputChange}
 					/>
 				</Form.Group>
@@ -94,4 +94,4 @@ const MarkerForm = (props) => {
 
 }
 
-export default MarkerForm
+export default PlaceForm

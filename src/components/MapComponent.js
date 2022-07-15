@@ -11,7 +11,7 @@ const center = {
   lng: -112.31041498069737
 };
 
-function MapComponent({markerList}) {
+function MapComponent({placeList}) {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyBi54ehlrrs28I7qEeU1jA6mJKB0If9KkI"
@@ -38,7 +38,7 @@ function MapComponent({markerList}) {
         onUnmount={onUnmount}
       >
           {
-            markerList.map((el,i) => {
+            placeList.map((el,i) => {
               return (
                 <Marker
                   key={i}

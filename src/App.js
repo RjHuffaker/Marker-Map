@@ -4,7 +4,7 @@ import MapComponent from './components/MapComponent';
 
 export default function App() {
 
-  const markerList = [
+  const placesList = [
     { lat: 40.54149320752432, lng: -112.31041498069737 },
     { lat: 40.52149320752432, lng: -112.32051498069727 },
     { lat: 40.55963900732105, lng: -112.30175993300523 },
@@ -15,9 +15,9 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Marker Map</h1>
+        <h1>Places Map</h1>
         <MapComponent
-          markerList={markerList}
+          placesList={placesList}
         />
       </header>
     </div>

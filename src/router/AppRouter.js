@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
-import AddMarker from '../components/AddMarker';
-import MarkerList from '../components/MarkerList';
+import AddPlace from '../components/AddPlace';
+import PlaceList from '../components/PlaceList';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 const AppRouter = () => {
-	const [markers, setMarkers] = useLocalStorage('markers', []);
+	const [places, setPlaces] = useLocalStorage('places', []);
 
 	return (
 		<BrowserRouter>
@@ -16,15 +16,15 @@ const AppRouter = () => {
 					<Switch>
 						<Route
 							render={(props) => (
-								<MarkerList {...props} markers={markers} setMarkers={setMarkers} />
+								<PlaceList {...props} places={places} setPlaces={setPlaces} />
 							)}
 							path="/"
 							exact={true}
 						/>
-						<Route component={MarkerList} path="/" exact={true} />
+						<Route component={PlaceList} path="/" exact={true} />
 						<Route
 							render={(props) => (
-								<AddMarker {...props} markers={markers} setMarkers={setMarkers} />
+								<AddPlace {...props} places={places} setPlaces={setPlaces} />
 							)}
 							path="/add"
 						/>
