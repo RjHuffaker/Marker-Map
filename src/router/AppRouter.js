@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import AddPlace from '../components/AddPlace';
+import EditPlace from '../components/EditPlace';
 import PlacesList from '../components/PlacesList';
 import PlacesMap from '../components/PlacesMap';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -35,6 +36,13 @@ const AppRouter = () => {
 							)}
 							path="/map"
 						/>
+						<Route
+							render={(props) => (
+								<EditPlace {...props} places={places} setPlaces={setPlaces} />
+							)}   
+							path="/edit/:id"
+						/>
+
 					</Switch>
 				</div>
 			</div>
