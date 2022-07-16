@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import AddPlace from '../components/AddPlace';
-import PlaceList from '../components/PlaceList';
+import PlacesList from '../components/PlacesList';
+import PlacesMap from '../components/PlacesMap';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 const AppRouter = () => {
@@ -16,17 +17,23 @@ const AppRouter = () => {
 					<Switch>
 						<Route
 							render={(props) => (
-								<PlaceList {...props} places={places} setPlaces={setPlaces} />
+								<PlacesList {...props} places={places} setPlaces={setPlaces} />
 							)}
 							path="/"
 							exact={true}
 						/>
-						<Route component={PlaceList} path="/" exact={true} />
+						<Route component={PlacesList} path="/" exact={true} />
 						<Route
 							render={(props) => (
 								<AddPlace {...props} places={places} setPlaces={setPlaces} />
 							)}
 							path="/add"
+						/>
+						<Route 
+							render={(props) => (
+								<PlacesMap {...props} places={places} setPlaces={setPlaces} />
+							)}
+							path="/map"
 						/>
 					</Switch>
 				</div>

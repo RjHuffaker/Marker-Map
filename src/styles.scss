@@ -71,23 +71,23 @@ h2 {
   margin-bottom: 50px;
 }
 
-.book-list {
+.place-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-.book {
+.place {
   margin: 10px;
   width: 288px;
   overflow: hidden;
 
-  .book-title {
+  .place-title {
     font-weight: bold;
   }
 
-  .book-details {
+  .place-details {
     margin-bottom: 1rem;
 
     & > div {

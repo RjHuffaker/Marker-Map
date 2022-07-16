@@ -13,6 +13,9 @@ const Header = () => {
         <NavLink to="/add" className="link" activeClassName="active">
           Add Place
         </NavLink>
+        <NavLink to="/map" className="link">
+          Place Map
+        </NavLink>
       </div>
     </header>
   );
